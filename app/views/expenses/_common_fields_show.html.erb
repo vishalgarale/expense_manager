@@ -1,0 +1,16 @@
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= instance.name %></div>
+  <div class="panel-body">
+    <table class="table table-bordered">
+      <% instance.as_json(except: [:created_at, :updated_at]).each do |k, v| %>
+          <tr>
+            <td class="field-label col-md-1 active" align="center">
+              <label><%= change_name(k) %></label>
+            </td>
+            <td class="col-md-5" align="left"><%= v.to_s.empty? ? '-' : v %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<% if instance.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(instance.errors.count, "error") %> prohibited this expense from being saved:</h2>
+    <ul>
+      <% instance.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="form-group">
+  <label class="control-label col-sm-2" for="name">Name:</label>
+  <div class="col-sm-6">
+    <%= f.text_field :name, class: 'form-control', id: 'name', placeholder: 'Enter name' %>
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label col-sm-2" for="description">Description:</label>
+  <div class="col-sm-6">
+    <%= f.text_area :description, class: 'form-control', id: 'description', placeholder: 'Enter description' %>
+  </div>
+</div>
+<div class="form-group">
+      <label class="control-label col-sm-2" for="amount">Amount:</label>
+      <div class="col-sm-6">
+        <%= f.text_field :amount, class: 'form-control', id: 'amount', placeholder: 'Enter amount' %>
+      </div>
+</div>
+<div class="form-group">
+      <label class="control-label col-sm-2" for="date_of_expense">Date of <%= singular_model %>:</label>
+      <div class="col-sm-6">
+        <%= f.text_field ('date_of_' + singular_model).to_sym, class: 'form-control datepicker', placeholder: "Enter date of #{singular_model}" %>
+      </div>
+</div>
+<div class="form-group">
+      <label class="control-label col-sm-2" for="category">Category:</label>
+      <div class="col-sm-6">
+        <%= f.select :category_id, @categories.collect { |u| [u.name, u.id] }, { prompt: 'Select' }, { class: 'form-control' } %>
+      </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-6" align="center">
+    <%= f.submit 'Update', class: 'btn btn-primary' %>
+    <!--<button type="submit" class="btn btn-default">Submit</button>-->
+  </div>
+</div>

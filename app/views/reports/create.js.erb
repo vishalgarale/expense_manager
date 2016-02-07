@@ -1,0 +1,5 @@
+<% if @success %>
+  $("#renderReport").html('<%= j (render partial: "report", locals: { transactions: @transactions, start_date: @start_date, end_date: @end_date } ) %>')
+<% else %>
+  $("#renderReport").html("<p style='color: #B00100'>Dates are invalid</p>");
+<% end %>

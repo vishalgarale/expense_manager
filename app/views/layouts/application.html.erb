@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Expense Manager</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div class="container">
+      <br />
+        <% if current_user.present? %>
+            <%= render partial: 'layouts/header' %>
+            <%= render partial: 'layouts/common_messages' %>
+        <% end %>
+
+        <%= yield %>
+    </div>
+</body>
+</html>

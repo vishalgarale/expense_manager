@@ -1,0 +1,11 @@
+<h1>Editing Expense</h1>
+
+<%= render 'form' %>
+
+<%= link_to @expense, class: 'btn btn-default btn-sm btn btn-info' do %>
+    <span class="glyphicon glyphicon glyphicon-zoom-in"></span> Show
+<% end %>
+
+<%= link_to expenses_path, class: 'btn btn-default btn-sm btn btn-warning' do %>
+    <span class="glyphicon glyphicon-triangle-right"></span> Back
+<% end %>

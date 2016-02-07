@@ -1,0 +1,31 @@
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @category.name %></div>
+  <div class="panel-body">
+    <table class="table table-bordered">
+      <% @category.as_json(except: [:created_at, :updated_at]).each do |k, v| %>
+          <tr>
+            <td class="field-label col-md-1 active" align="center">
+              <label><%= change_name(k) %></label>
+            </td>
+            <td class="col-md-5" align="left"><%= v.to_s.empty? ? '-' : v %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Childs</div> <br />
+  <% @category.walk_tree do |category, level| %>
+  	<%= link_to "#{'-'*level}#{category.name}", category_path(category) %><br />
+  <% end %>
+</div>
+
+<%= link_to edit_category_path(@category), class: 'btn btn-default btn-sm btn-info' do %>
+    <span class="glyphicon glyphicon-edit"></span> Edit
+<% end %>
+
+<%= link_to categories_path, class: 'btn btn-default btn-sm btn-warning' do %>
+    <span class="glyphicon glyphicon-triangle-right"></span> Back
+<% end %>

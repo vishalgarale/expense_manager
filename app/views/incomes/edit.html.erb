@@ -1,0 +1,11 @@
+<h1>Editing Income</h1>
+
+<%= render 'form' %>
+
+<%= link_to @income, class: 'btn btn-default btn-sm btn btn-info' do %>
+    <span class="glyphicon glyphicon glyphicon-zoom-in"></span> Show
+<% end %>
+
+<%= link_to incomes_path, class: 'btn btn-default btn-sm btn btn-warning' do %>
+    <span class="glyphicon glyphicon-triangle-right"></span> Back
+<% end %>

@@ -1,0 +1,10 @@
+<%= render partial: "common_fields_show", locals: { instance: @expense } %>
+
+<%= link_to edit_expense_path(@expense), class: 'btn btn-default btn-sm btn-info' do %>
+    <span class="glyphicon glyphicon-edit"></span> Edit
+<% end %>
+
+<%= link_to expenses_path, class: 'btn btn-default btn-sm btn-warning' do %>
+    <span class="glyphicon glyphicon-triangle-right"></span> Back
+<% end %>
+

@@ -1,0 +1,66 @@
+<div class="page-header">
+  <h1>Expenses</h1>
+</div>
+
+
+<div class="table-responsive">
+  <table class="table table-hover table-bordered">
+    <thead>
+    <tr class="black-white">
+      <th class="text-align-center">Name</th>
+      <th class="text-align-center">Amount</th>
+      <th class="text-align-center">Date of expense</th>
+      <th class="text-align-center">Identity Code</th>
+      <th class="text-align-center">Show</th>
+      <th class="text-align-center">Edit</th>
+      <th class="text-align-center">Delete</th>
+      <!--<th colspan="3"></th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <% @expenses.each do |expense| %>
+        <tr class="<%= cycle("cycle-1", "cycle-2") -%>" align="center">
+          <td><%= expense.name %></td>
+          <td><%= expense.amount %></td>
+          <td><%= expense.date_of_expense %></td>
+          <td><%= expense.code %></td>
+          <td>
+            <%= link_to expense, class: 'btn btn-default btn-sm btn btn-info' do %>
+                <span class="glyphicon glyphicon glyphicon-zoom-in"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_expense_path(expense), class: 'btn btn-default btn-sm btn btn-warning' do %>
+                <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to expense, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-sm btn btn-danger' do %>
+                <span class="glyphicon glyphicon-remove-sign"></span>
+            <% end %>
+
+          </td>
+        </tr>
+    <% end %>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to new_expense_path, class: 'btn btn-default btn-sm btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span> New Expense
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+

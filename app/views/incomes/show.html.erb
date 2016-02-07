@@ -1,0 +1,9 @@
+<%= render partial: "expenses/common_fields_show", locals: { instance: @income } %>
+
+<%= link_to edit_income_path(@income), class: 'btn btn-default btn-sm btn-info' do %>
+    <span class="glyphicon glyphicon-edit"></span> Edit
+<% end %>
+
+<%= link_to incomes_path, class: 'btn btn-default btn-sm btn-warning' do %>
+    <span class="glyphicon glyphicon-triangle-right"></span> Back
+<% end %>

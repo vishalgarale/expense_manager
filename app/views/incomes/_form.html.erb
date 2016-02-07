@@ -1,0 +1,3 @@
+<%= form_for(@income, html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+  <%= render partial: 'expenses/common_fields', locals: { f: f, instance: @income } %>
+<% end %>

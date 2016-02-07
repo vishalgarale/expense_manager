@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h1>New Report</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+      <%= form_tag(reports_path, format: :pdf, remote: true, html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+
+        <div class="col-sm-5">
+           <div class="form-group">
+            <label class="control-label col-sm-2" for="amount">Amount:</label>
+            <div class="col-sm-6">
+              <%= text_field_tag :start_date, nil, class: 'form-control datepicker', placeholder: "Enter start date" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-5">
+           <div class="form-group">
+            <label class="control-label col-sm-2" for="amount">Amount:</label>
+            <div class="col-sm-6">
+              <%= text_field_tag :end_date, nil, class: 'form-control datepicker', placeholder: "Enter end date" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+           <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-6" align="center">
+              <%= submit_tag 'Generate', class: 'btn btn-primary' %>
+              <!--<button type="submit" class="btn btn-default">Submit</button>-->
+            </div>
+           </div>
+        </div>
+      <% end %>
+  </div>
+  <div class="col-md-6"></div>
+</div>
+<div class="row" id="renderReport"></div>
