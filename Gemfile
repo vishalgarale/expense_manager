@@ -62,7 +62,9 @@ gem 'rails_12factor', group: "production"
 
 gem 'sprockets'
 
-gem "non-stupid-digest-assets"
+  gem 'wkhtmltopdf-heroku'
+
+# gem "non-stupid-digest-assets"
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
