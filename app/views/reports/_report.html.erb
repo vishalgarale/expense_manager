@@ -11,6 +11,7 @@
       <th class="text-align-center">Category_name</th>
       <th class="text-align-center">Amount</th>
       <th class="text-align-center">Description</th>
+      <th class="text-align-center">At</th>
       <!--<th colspan="3"></th>-->
     </tr>
     </thead>
@@ -24,6 +25,7 @@
             <td><%= t.category_name %></td>
             <td><%= t.amount %></td>
             <td><%= t.description %></td>
+            <td><%= t.created_at.to_date %></td>
           </tr>
         <% end %>
       <% else %>
@@ -33,4 +35,6 @@
     </tbody>
   </table>
 </div>
-<%= link_to "Download Invoice (PDF)", download_report_path(:transactions => transactions, :start_date => start_date, :end_date => end_date, :format => "pdf") %>
+<% if transactions.present? %>
+  <%= link_to "Download Invoice (PDF)", download_report_path(:transactions => transactions, :start_date => start_date, :end_date => end_date, :format => "pdf") %>
+<% end %>

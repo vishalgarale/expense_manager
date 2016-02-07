@@ -6,7 +6,7 @@ class IncomesController < ApplicationController
   # GET /incomes
   # GET /incomes.json
   def index
-    @incomes = current_user.incomes.all
+    @incomes = current_user.incomes
   end
 
   # GET /incomes/1
@@ -70,7 +70,7 @@ class IncomesController < ApplicationController
     end
 
     def set_category
-      @categories = Category.where(c_type: CATEGORY_TYPE_INCOME)
+      @categories = current_user.categories.where(c_type: CATEGORY_TYPE_INCOME)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

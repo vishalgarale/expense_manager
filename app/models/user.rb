@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
    # Association
    has_many :expenses , dependent: :destroy
    has_many :incomes, dependent: :destroy
+   has_many :transactions
+   has_many :categories, dependent: :destroy
 end

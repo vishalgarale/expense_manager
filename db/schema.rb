@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160206094200) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "name",        limit: 50,                      null: false
     t.string   "description", limit: 500
     t.integer  "parent_id"
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160206094200) do
   end
 
   create_table "transactions", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.string   "category_name"
     t.decimal  "amount",                     precision: 30, scale: 10, default: 0.0

@@ -1,6 +1,7 @@
 class CreateCategories < ActiveRecord::Migration
   def change
     create_table :categories do |t|
+      t.belongs_to :user
       t.string :name, null: false, limit: 50
       t.string :description, limit: 500
       t.integer :parent_id

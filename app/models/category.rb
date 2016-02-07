@@ -9,8 +9,11 @@ class Category < ActiveRecord::Base
   has_many :expenses
   has_many :incomes
 
-  def get_categories
-    Category.all.reject { |c| self == c }
+  belongs_to :user
+
+  def get_categories(user_id)
+    user = User.find_by(id: user_id)
+    user.categories.reject { |c| self == c }
   end
 
   def self.root

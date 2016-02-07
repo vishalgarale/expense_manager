@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>New Report</h1>
+  <h1>Generate Report</h1>
 </div>
 
 <div class="row">
@@ -8,7 +8,7 @@
 
         <div class="col-sm-5">
            <div class="form-group">
-            <label class="control-label col-sm-2" for="amount">Amount:</label>
+            <label class="control-label col-sm-2" for="amount">Start Date:</label>
             <div class="col-sm-6">
               <%= text_field_tag :start_date, nil, class: 'form-control datepicker', placeholder: "Enter start date" %>
             </div>
@@ -17,14 +17,27 @@
 
         <div class="col-sm-5">
            <div class="form-group">
-            <label class="control-label col-sm-2" for="amount">Amount:</label>
+            <label class="control-label col-sm-2" for="amount">End Date:</label>
             <div class="col-sm-6">
               <%= text_field_tag :end_date, nil, class: 'form-control datepicker', placeholder: "Enter end date" %>
             </div>
           </div>
         </div>
-
-        <div class="col-md-2">
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="col-md-12">
+      <div class="col-sm-5">
+           <div class="form-group">
+            <label class="control-label col-sm-2" for="amount">Category:</label>
+            <div class="col-sm-6">
+              <!-- < %= select_tag :category, @categories.collect { |u| [u.name, u.id] }, prompt: 'All' , class: 'form-control' %> -->
+              <%= select_tag :category, options_for_select(@categories.collect{ |u| u.name }), prompt: 'All' , class: 'form-control' %>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-5">
            <div class="form-group">
             <div class="col-sm-offset-2 col-sm-6" align="center">
               <%= submit_tag 'Generate', class: 'btn btn-primary' %>
@@ -34,6 +47,7 @@
         </div>
       <% end %>
   </div>
-  <div class="col-md-6"></div>
 </div>
-<div class="row" id="renderReport"></div>
+<div class="row" id="renderReport">
+  <%= render partial: "report", locals: { transactions: @transactions, start_date: @start_date, end_date: @end_date }  %>
+</div>

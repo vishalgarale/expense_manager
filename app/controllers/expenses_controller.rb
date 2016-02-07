@@ -6,7 +6,7 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = current_user.expenses.all
+    @expenses = current_user.expenses
   end
 
   # GET /expenses/1
@@ -70,7 +70,7 @@ class ExpensesController < ApplicationController
     end
 
     def set_category
-      @categories = Category.where(c_type: CATEGORY_TYPE_EXPENSE)
+      @categories = current_user.categories.where(c_type: CATEGORY_TYPE_EXPENSE)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
