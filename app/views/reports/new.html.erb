@@ -10,7 +10,7 @@
            <div class="form-group">
             <label class="control-label col-sm-2" for="amount">Start Date:</label>
             <div class="col-sm-6">
-              <%= text_field_tag :start_date, nil, class: 'form-control datepicker', placeholder: "Enter start date" %>
+              <%= text_field_tag :start_date, @start_date, class: 'form-control datepicker', placeholder: "Enter start date" %>
             </div>
           </div>
         </div>
@@ -19,7 +19,7 @@
            <div class="form-group">
             <label class="control-label col-sm-2" for="amount">End Date:</label>
             <div class="col-sm-6">
-              <%= text_field_tag :end_date, nil, class: 'form-control datepicker', placeholder: "Enter end date" %>
+              <%= text_field_tag :end_date,  @end_date, class: 'form-control datepicker', placeholder: "Enter end date" %>
             </div>
           </div>
         </div>
